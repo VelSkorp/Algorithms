@@ -6,7 +6,7 @@
 		{
 			PathAlongTheReachabilityMatrix.Test();
 			CreateIncidenceMatrixAndAdjacencyList.Test();
-
+			PrimaAlgorithm.Test();
 
 		}
 	}
