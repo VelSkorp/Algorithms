@@ -10,7 +10,7 @@ namespace GraphAlgorithms
 		#region Public Properties
 
 		public Stack<int> Path { get; private set; }
-		public int[,] Graph { get; set; } 
+		public int[,] Graph { get; private set; } 
 
 		#endregion
 

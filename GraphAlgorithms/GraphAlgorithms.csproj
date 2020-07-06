@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\EulerPath.cs" />
+    <Compile Include="Algorithms\HamiltonPath.cs" />
     <Compile Include="Matrices\PathAlongTheCounterReachabilityMatrix.cs" />
     <Compile Include="Matrices\PathAlongTheReachabilityMatrix.cs" />
     <Compile Include="Matrices\CreateIncidenceMatrixAndAdjacencyList.cs" />

@@ -7,7 +7,8 @@
 			//PathAlongTheReachabilityMatrix.Test();
 			//CreateIncidenceMatrixAndAdjacencyList.Test();
 			//PrimaAlgorithm.Test();
-			EulerPath.Test();
+			//EulerPath.Test();
+			HamiltonPath.Test();
 		}
 	}
 }
