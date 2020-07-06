@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PathAlongTheCounterReachabilityMatrix.cs" />
     <Compile Include="PathAlongTheReachabilityMatrix.cs" />
     <Compile Include="CreateIncidenceMatrixAndAdjacencyList.cs" />
     <Compile Include="Program.cs" />
