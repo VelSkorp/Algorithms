@@ -59,7 +59,7 @@ namespace GraphAlgorithms
 			{
 				vertex = FindMin(vertex);
 
-				if (!Array.Exists(Tree, element => element == vertex) & vertex != -1)
+				if (!Array.Exists(Tree, element => element == vertex) && vertex != -1)
 				{
 					Tree[counter] = vertex;
 					counter++;
@@ -103,7 +103,7 @@ namespace GraphAlgorithms
 		private int FindMin(int vertexStart)
 		{
 			var size = (int)Math.Sqrt(Graph.Length);
-			var min = 255;
+			var min = int.MaxValue;
 			var index = -1;
 
 			if (vertexStart == -1)
