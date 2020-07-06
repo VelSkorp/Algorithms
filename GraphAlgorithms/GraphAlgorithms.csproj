@@ -43,15 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PathAlongTheCounterReachabilityMatrix.cs" />
-    <Compile Include="PathAlongTheReachabilityMatrix.cs" />
-    <Compile Include="CreateIncidenceMatrixAndAdjacencyList.cs" />
-    <Compile Include="PrimaAlgorithm.cs" />
+    <Compile Include="Algorithms\EulerPath.cs" />
+    <Compile Include="Matrices\PathAlongTheCounterReachabilityMatrix.cs" />
+    <Compile Include="Matrices\PathAlongTheReachabilityMatrix.cs" />
+    <Compile Include="Matrices\CreateIncidenceMatrixAndAdjacencyList.cs" />
+    <Compile Include="Algorithms\PrimaAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataStructures\Stack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

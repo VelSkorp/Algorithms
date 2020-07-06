@@ -4,10 +4,10 @@
 	{
 		public static void Main(string[] args)
 		{
-			PathAlongTheReachabilityMatrix.Test();
-			CreateIncidenceMatrixAndAdjacencyList.Test();
-			PrimaAlgorithm.Test();
-
+			//PathAlongTheReachabilityMatrix.Test();
+			//CreateIncidenceMatrixAndAdjacencyList.Test();
+			//PrimaAlgorithm.Test();
+			EulerPath.Test();
 		}
 	}
 }
