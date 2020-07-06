@@ -2,6 +2,9 @@
 
 namespace GraphAlgorithms
 {
+	/// <summary>
+	/// Task: Write a program that constructs and prints incidence matrices and adjacency lists for graphs using the adjacency matrix.
+	/// </summary>
 	public class CreateIncidenceMatrixAndAdjacencyList
 	{
 		#region Public Properties
