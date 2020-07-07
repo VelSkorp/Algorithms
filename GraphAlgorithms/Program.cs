@@ -8,7 +8,8 @@
 			//CreateIncidenceMatrixAndAdjacencyList.Test();
 			//PrimaAlgorithm.Test();
 			//EulerPath.Test();
-			HamiltonPath.Test();
+			//HamiltonPath.Test();
+			MaximumFlow.Test();
 		}
 	}
 }
