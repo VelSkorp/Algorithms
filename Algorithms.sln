@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String reverce", "String re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAlgorithms", "GraphAlgorithms\GraphAlgorithms.csproj", "{3ECE66CF-F679-4C01-9C44-93AF62870881}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{DDD9C5FC-983D-4DA2-89B4-ED9C16ADD1C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3ECE66CF-F679-4C01-9C44-93AF62870881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ECE66CF-F679-4C01-9C44-93AF62870881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ECE66CF-F679-4C01-9C44-93AF62870881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD9C5FC-983D-4DA2-89B4-ED9C16ADD1C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD9C5FC-983D-4DA2-89B4-ED9C16ADD1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD9C5FC-983D-4DA2-89B4-ED9C16ADD1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD9C5FC-983D-4DA2-89B4-ED9C16ADD1C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
