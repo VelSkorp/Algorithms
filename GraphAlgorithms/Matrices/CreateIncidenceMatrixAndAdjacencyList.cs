@@ -26,7 +26,7 @@ namespace GraphAlgorithms
 
 		public static void Test()
 		{
-			#region Test graph №1
+			#region Test graph 1
 
 			Console.WriteLine("Test graph №1\n");
 
@@ -48,7 +48,7 @@ namespace GraphAlgorithms
 
 			#endregion
 
-			#region Test graph №2
+			#region Test graph 2
 
 			Console.WriteLine("\nTest graph №2\n");
 
@@ -71,7 +71,7 @@ namespace GraphAlgorithms
 
 			#endregion
 
-			#region Test graph №3
+			#region Test graph 3
 
 			Console.WriteLine("\nTest graph №3\n");
 

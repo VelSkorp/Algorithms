@@ -43,12 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sorts\QuickSort.cs" />
+    <Compile Include="Sorts\CocktailSort.cs" />
+    <Compile Include="SortOrder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShellSort.cs" />
+    <Compile Include="Sorts\BubbleSort.cs" />
+    <Compile Include="Utils\ConditionUtil.cs" />
+    <Compile Include="Utils\SwapUtil.cs" />
+    <Compile Include="Sorts\ShellSort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

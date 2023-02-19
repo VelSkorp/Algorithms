@@ -2,9 +2,9 @@
 
 namespace Algoritms
 {
-	public class Program
+	public sealed class StringReverce
 	{
-		public static void Main(string[] args)
+		public static void Main()
 		{
 			var Message = "Hello world";
 			int i, j;

@@ -4,15 +4,15 @@ namespace Sorting
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+		public static void Main()
 		{
-			int[] v = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+			int[] array = { 8, 5, 3, 7, 1, 2, 6, 4, 9 };
 
-			ShellSort.Sort(v, v.Length);
-			
-			for (var i = 0; i < v.Length; i++)
+			QuickSort.Sort(array, SortOrder.Descending);
+
+			foreach (var item in array)
 			{
-				Console.WriteLine(v[i]);
+				Console.WriteLine(item); 
 			}
 		}
 	}
