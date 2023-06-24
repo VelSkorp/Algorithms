@@ -11,7 +11,7 @@
         {
             if (left < right)
             {
-                int q = Partition(array, left, right, order);
+                var q = Partition(array, left, right, order);
                 QuickSortImpl(array, left, q - 1, order);
                 QuickSortImpl(array, q + 1, right, order);
             }
@@ -19,10 +19,10 @@
 
         public static int Partition(int[] array, int left, int right, SortOrder order)
         {
-            int x = array[right];
-            int less = left;
+            var x = array[right];
+            var less = left;
 
-            for (int i = left; i < right; i++)
+            for (var i = left; i < right; i++)
             {
                 if (ConditionUtil.GetCondition(array[i], x, order))
                 {
