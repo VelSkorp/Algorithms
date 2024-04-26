@@ -72,23 +72,23 @@
 			mVis[vertexStart] = true;
 			mVer.Add(vertexStart);
 
+			if (vertexStart == vertexEnd || vertexStart >= size || vertexEnd >= size)
+			{
+				return true;
+			}
+
 			for (var i = 0; i < size; i++)
 			{
-				if (vertexStart == vertexEnd)
-				{
-					return true; 
-				}
-
 				if (mGraph[vertexStart, i][0] == mGraph[vertexStart, i][2] || mVis[i] || mVer.Contains(i))
 				{
-					continue; 
+					continue;
 				}
 
 				var currentMin = GetNumFromChar(mGraph[vertexStart, i][0]) - GetNumFromChar(mGraph[vertexStart, i][2]);
 
 				if (currentMin < mGeneralMin)
 				{
-					mGeneralMin = currentMin; 
+					mGeneralMin = currentMin;
 				}
 
 				if (DFS(i, vertexEnd))
