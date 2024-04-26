@@ -9,7 +9,9 @@
 			//PrimaAlgorithm.Test();
 			//EulerPath.Test();
 			//HamiltonPath.Test();
-			MaximumFlow.Test();
+
+
+
 		}
 	}
 }
