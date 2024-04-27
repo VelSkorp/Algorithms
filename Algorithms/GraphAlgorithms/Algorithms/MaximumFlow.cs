@@ -10,16 +10,6 @@
 		private bool[] mVis;
 		private HashSet<int> mVer = new HashSet<int>();
 		private int mGeneralMin;
-		private string[,] mGraph;
-
-		#endregion
-
-		#region Constructor
-
-		public MaximumFlow(string[,] graph)
-		{
-			mGraph = graph;
-		}
 
 		#endregion
 
@@ -28,46 +18,58 @@
 		/// <summary>
 		/// Calculates the maximum flow in the graph and returns information about it.
 		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <returns>
 		/// A tuple containing information about the maximum flow and saturated edges.
 		/// </returns>
-		public (string, string) FindMaxFlowAndSaturatedEdges()
+		public (string, string) FindMaxFlowAndSaturatedEdges(string[,] graph)
 		{
-			Initialize();
+			Initialize(graph);
 
 			mVer.Remove(0);
 			mVer.Remove(6);
-			Initialize();
+			Initialize(graph);
 
 			mVer.Remove(0);
 			mVer.Remove(6);
-			Initialize();
+			Initialize(graph);
 
 			mVer = new HashSet<int>();
-			Initialize();
+			Initialize(graph);
 
 			mVer = new HashSet<int>();
-			Initialize();
+			Initialize(graph);
 
-			return (GetMaxFlow(), GetSaturatedEdges());
+			return (GetMaxFlow(graph), GetSaturatedEdges(graph));
 		}
 
 		#endregion
 
 		#region Private Methods
 
-		private void Initialize()
+		/// <summary>
+		/// Initializes the graph for maximum flow calculation.
+		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
+		private void Initialize(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(mGraph.Length);
+			var size = (int)Math.Sqrt(graph.Length);
 
 			mVis = new bool[size];
 			mGeneralMin = int.MaxValue;
-			DFS(0, size - 1);
+			DFS(graph, 0, size - 1);
 		}
 
-		private bool DFS(int vertexStart, int vertexEnd)
+		/// <summary>
+		/// Depth-First Search (DFS) algorithm to find augmenting paths in the graph.
+		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
+		/// <param name="vertexStart">The starting vertex for DFS.</param>
+		/// <param name="vertexEnd">The ending vertex for DFS (sink).</param>
+		/// <returns>True if an augmenting path is found; otherwise, false.</returns>
+		private bool DFS(string[,] graph, int vertexStart, int vertexEnd)
 		{
-			var size = (int)Math.Sqrt(mGraph.Length);
+			var size = (int)Math.Sqrt(graph.Length);
 
 			mVis[vertexStart] = true;
 			mVer.Add(vertexStart);
@@ -79,45 +81,50 @@
 
 			for (var i = 0; i < size; i++)
 			{
-				if (mGraph[vertexStart, i][0] == mGraph[vertexStart, i][2] || mVis[i] || mVer.Contains(i))
+				if (graph[vertexStart, i][0] == graph[vertexStart, i][2] || mVis[i] || mVer.Contains(i))
 				{
 					continue;
 				}
 
-				var currentMin = GetNumFromChar(mGraph[vertexStart, i][0]) - GetNumFromChar(mGraph[vertexStart, i][2]);
+				var currentMin = GetNumFromChar(graph[vertexStart, i][0]) - GetNumFromChar(graph[vertexStart, i][2]);
 
 				if (currentMin < mGeneralMin)
 				{
 					mGeneralMin = currentMin;
 				}
 
-				if (DFS(i, vertexEnd))
+				if (DFS(graph, i, vertexEnd))
 				{
-					UpdateFlow(vertexStart, i);
+					UpdateFlow(graph, vertexStart, i);
 					return true;
 				}
 			}
 			return false;
 		}
 
-		private string GetMaxFlow()
+		/// <summary>
+		/// Retrieves the maximum flow value from the graph.
+		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
+		/// <returns>The string representation of the maximum flow.</returns>
+		private string GetMaxFlow(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(mGraph.Length);
+			var size = (int)Math.Sqrt(graph.Length);
 			var flow = 0;
 			var source = new List<char>();
 			var stock = new List<char>();
 
 			for (var i = 0; i < size; i++)
 			{
-				if (mGraph[0, i][2] != '0')
+				if (graph[0, i][2] != '0')
 				{
-					flow += GetNumFromChar(mGraph[0, i][2]);
-					source.Add(mGraph[0, i][2]);
+					flow += GetNumFromChar(graph[0, i][2]);
+					source.Add(graph[0, i][2]);
 				}
 
-				if (mGraph[i, size - 1][2] != '0')
+				if (graph[i, size - 1][2] != '0')
 				{
-					stock.Add(mGraph[i, size - 1][2]);
+					stock.Add(graph[i, size - 1][2]);
 				}
 			}
 
@@ -127,16 +134,21 @@
 			return $"{strSource} = {strStock} = {flow}";
 		}
 
-		private string GetSaturatedEdges()
+		/// <summary>
+		/// Retrieves the saturated edges from the graph.
+		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
+		/// <returns>The string representation of saturated edges.</returns>
+		private string GetSaturatedEdges(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(mGraph.Length);
+			var size = (int)Math.Sqrt(graph.Length);
 			var edges = new List<string>();
 
 			for (var i = 0; i < size; i++)
 			{
 				for (var j = 0; j < size; j++)
 				{
-					if (GetNumFromChar(mGraph[i, j][0]) == GetNumFromChar(mGraph[i, j][2]) && mGraph[i, j][2] != '0')
+					if (GetNumFromChar(graph[i, j][0]) == GetNumFromChar(graph[i, j][2]) && graph[i, j][2] != '0')
 					{
 						edges.Add($"{i + 1}-{j + 1}");
 					}
@@ -145,13 +157,24 @@
 			return string.Join(", ", edges);
 		}
 
-		private void UpdateFlow(int vertexOne, int vertexTwo)
+		/// <summary>
+		/// Updates the flow value along an edge in the graph.
+		/// </summary>
+		/// <param name="graph">The graph represented as a 2D array of strings.</param>
+		/// <param name="vertexOne">The starting vertex of the edge.</param>
+		/// <param name="vertexTwo">The ending vertex of the edge.</param>
+		private void UpdateFlow(string[,] graph, int vertexOne, int vertexTwo)
 		{
-			var lastValue = GetNumFromChar(mGraph[vertexOne, vertexTwo][2]);
-			mGraph[vertexOne, vertexTwo] = mGraph[vertexOne, vertexTwo].Remove(2, 1);
-			mGraph[vertexOne, vertexTwo] = mGraph[vertexOne, vertexTwo].Insert(2, $"{lastValue + mGeneralMin}");
+			var lastValue = GetNumFromChar(graph[vertexOne, vertexTwo][2]);
+			graph[vertexOne, vertexTwo] = graph[vertexOne, vertexTwo].Remove(2, 1);
+			graph[vertexOne, vertexTwo] = graph[vertexOne, vertexTwo].Insert(2, $"{lastValue + mGeneralMin}");
 		}
 
+		/// <summary>
+		/// Converts a character representing a digit to its corresponding integer value.
+		/// </summary>
+		/// <param name="ch">The character to convert.</param>
+		/// <returns>The integer value corresponding to the character.</returns>
 		private int GetNumFromChar(char ch) => ch - '0';
 
 		#endregion
