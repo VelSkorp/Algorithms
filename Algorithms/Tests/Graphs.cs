@@ -15,12 +15,20 @@ namespace Tests
 
 		[Test]
 		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.EulerPathTestCases))]
-		public (bool, string) EulerPathTest(int[,] graph)
+		public (bool, Stack<int>) EulerPathTest(int[,] graph)
 		{
 			var eulerPath = new EulerPath();
 			var isPath = eulerPath.IsEulerPath(graph, out var startVertex);
 			var path = isPath ? eulerPath.FindEulerPathOrCycle(graph, startVertex) : eulerPath.FindEulerPathOrCycle(graph, 0);
-			return (isPath, string.Join(" ", path));
+			return (isPath, path);
+		}
+
+		[Test]
+		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.HamiltonPathTestCases))]
+		public List<int> HamiltonPathTest(int[,] graph, int from, int to)
+		{
+			var hamiltonPath = new HamiltonPath();
+			return hamiltonPath.FindHamiltonPathOrCycle(graph, from, to);
 		}
 	}
 }
