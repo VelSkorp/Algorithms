@@ -25,7 +25,7 @@ namespace Tests
 
 		[Test]
 		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.HamiltonPathTestCases))]
-		public List<int> HamiltonPathTest(int[,] graph, int from, int to)
+		public HashSet<int> HamiltonPathTest(int[,] graph, int from, int to)
 		{
 			var hamiltonPath = new HamiltonPath();
 			return hamiltonPath.FindHamiltonPathOrCycle(graph, from, to);

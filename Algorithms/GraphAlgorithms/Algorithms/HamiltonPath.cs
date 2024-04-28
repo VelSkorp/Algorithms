@@ -12,38 +12,33 @@
 		/// <param name="startVertex">The starting vertex for the path or cycle.</param>
 		/// <param name="endVertex">The ending vertex for the path or cycle (only applicable if finding a cycle).</param>
 		/// <returns>
-		/// A list containing the vertices in the Hamiltonian path or cycle,
+		/// A HashSet containing the vertices in the Hamiltonian path or cycle,
 		/// or null if no Hamiltonian path or cycle is found.
 		/// </returns>
-		public List<int> FindHamiltonPathOrCycle(int[,] graph, int startVertex, int endVertex)
+		public HashSet<int> FindHamiltonPathOrCycle(int[,] graph, int startVertex, int endVertex)
 		{
 			var size = (int)Math.Sqrt(graph.Length);
 			var isFindCycle = startVertex == endVertex;
-			var path = new List<int>();
-			var visited = new HashSet<int>();
+			var path = new HashSet<int> { startVertex };
 
-			path.Add(startVertex);
-			visited.Add(startVertex);
-
-			if (isFindCycle && CountEdge(graph, visited, endVertex) == 1)
+			if (isFindCycle && CountEdge(graph, path, endVertex) == 1)
 			{
 				return null;
 			}
 
 			for (var i = 1; i < size; i++)
 			{
-				var nextVertex = GetNextVertex(graph, path, visited, endVertex, i);
+				var nextVertex = GetNextVertex(graph, path, endVertex, i);
 				if (nextVertex == -1)
 				{
 					return null;
 				}
 				path.Add(nextVertex);
-				visited.Add(nextVertex);
 			}
 
 			if (isFindCycle)
 			{
-				var lastVertex = path[size - 1];
+				var lastVertex = path.ElementAt(size - 1);
 				if (graph[lastVertex, startVertex] == 0)
 				{
 					return null;
@@ -59,16 +54,15 @@
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="path">The current path being constructed.</param>
-		/// <param name="visited">The set of visited vertices.</param>
 		/// <param name="endVertex">The ending vertex for the path or cycle.</param>
 		/// <param name="currentVertexIndex">The index of the current vertex in the path.</param>
 		/// <returns>The next vertex in the path, or -1 if no such vertex is found.</returns>
-		private int GetNextVertex(int[,] graph, List<int> path, HashSet<int> visited, int endVertex, int currentVertexIndex)
+		private int GetNextVertex(int[,] graph, HashSet<int> path, int endVertex, int currentVertexIndex)
 		{
 			var size = (int)Math.Sqrt(graph.Length);
 			var minCountEdge = int.MaxValue;
 			var nextVertex = -1;
-			var verticesLeft = size - visited.Count;
+			var verticesLeft = size - path.Count;
 
 			for (var k = 0; k < size; k++)
 			{
@@ -76,9 +70,9 @@
 				{
 					continue;
 				}
-				if (!visited.Contains(k) && graph[path[currentVertexIndex - 1], k] == 1)
+				if (!path.Contains(k) && graph[path.ElementAt(currentVertexIndex - 1), k] == 1)
 				{
-					var countEdge = CountEdge(graph, visited, k);
+					var countEdge = CountEdge(graph, path, k);
 					if (countEdge < minCountEdge)
 					{
 						minCountEdge = countEdge;
