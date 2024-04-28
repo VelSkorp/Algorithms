@@ -38,5 +38,16 @@ namespace Tests
 			var primaAlgorithm = new PrimsAlgorithm();
 			return primaAlgorithm.FindSpanningTree(graph);
 		}
+
+		[Test]
+		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.GraphRepresentationBuilderTestCases))]
+		public (int[][], HashSet<(int, int)>, int[,]) GraphRepresentationBuilderTest(int[,] graph)
+		{
+			var createIncidenceMatrixAndAdjacencyList = new GraphRepresentationBuilder();
+			var list = createIncidenceMatrixAndAdjacencyList.BuildAdjacencyList(graph);
+			var edges = createIncidenceMatrixAndAdjacencyList.FindIncidentEdges(list);
+			var matrix = createIncidenceMatrixAndAdjacencyList.BuildIncidenceMatrix(graph, edges);
+			return (list, edges, matrix);
+		}
 	}
 }

@@ -9,12 +9,10 @@
 		/// Finds a minimum spanning tree in the given graph using Prim's algorithm.
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
-		/// <returns>
-		/// A HashSet containing the vertices forming the minimum spanning tree.
-		/// </returns>
+		/// <returns>A HashSet containing the vertices forming the minimum spanning tree.</returns>
 		public HashSet<int> FindSpanningTree(int[,] graph)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var tree = new HashSet<int> { 0 };
 			var priorityQueue = new PriorityQueue<int, int>();
 

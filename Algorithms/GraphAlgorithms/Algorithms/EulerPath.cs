@@ -13,7 +13,7 @@
 		/// <returns>A stack containing the vertices of the Euler path or cycle</returns>
 		public Stack<int> FindEulerPathOrCycle(int[,] graph, int currVertex)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var stack = new Stack<int>();
 			var path = new Stack<int>();
 
@@ -58,7 +58,7 @@
 		/// <returns>True if an Euler path exists, otherwise false</returns>
 		public bool IsEulerPath(int[,] graph, out int oddVertex)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var vertexOddEdges = 0;
 
 			oddVertex = -1;

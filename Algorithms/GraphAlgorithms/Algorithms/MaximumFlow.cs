@@ -1,7 +1,7 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Develop a program that determines the maximum flow in a graph using depth search
+	/// Task: Develop a program that determines the maximum flow in a graph using depth search (DFS)
 	/// </summary>
 	public class MaximumFlow
 	{
@@ -19,9 +19,7 @@
 		/// Calculates the maximum flow in the graph and returns information about it.
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
-		/// <returns>
-		/// A tuple containing information about the maximum flow and saturated edges.
-		/// </returns>
+		/// <returns>A tuple containing information about the maximum flow and saturated edges.</returns>
 		public (string, string) FindMaxFlowAndSaturatedEdges(string[,] graph)
 		{
 			Initialize(graph);
@@ -53,7 +51,7 @@
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		private void Initialize(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 
 			mVis = new bool[size];
 			mGeneralMin = int.MaxValue;
@@ -69,7 +67,7 @@
 		/// <returns>True if an augmenting path is found; otherwise, false.</returns>
 		private bool DFS(string[,] graph, int vertexStart, int vertexEnd)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 
 			mVis[vertexStart] = true;
 			mVer.Add(vertexStart);
@@ -109,7 +107,7 @@
 		/// <returns>The string representation of the maximum flow.</returns>
 		private string GetMaxFlow(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var flow = 0;
 			var source = new List<char>();
 			var stock = new List<char>();
@@ -141,7 +139,7 @@
 		/// <returns>The string representation of saturated edges.</returns>
 		private string GetSaturatedEdges(string[,] graph)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var edges = new List<string>();
 
 			for (var i = 0; i < size; i++)

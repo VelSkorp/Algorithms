@@ -1,7 +1,7 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Design a program for finding the Hamiltonian path between two user-specified vertices of an arbitrary undirected graph described by its adjacency matrix
+	/// Task: Design a program for finding the Hamiltonian path between two user-specified vertices of an arbitrary undirected graph described by it's adjacency matrix
 	/// </summary>
 	public class HamiltonPath
 	{
@@ -17,7 +17,7 @@
 		/// </returns>
 		public HashSet<int> FindHamiltonPathOrCycle(int[,] graph, int startVertex, int endVertex)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var isFindCycle = startVertex == endVertex;
 			var path = new HashSet<int> { startVertex };
 
@@ -59,7 +59,7 @@
 		/// <returns>The next vertex in the path, or -1 if no such vertex is found.</returns>
 		private int GetNextVertex(int[,] graph, HashSet<int> path, int endVertex, int currentVertexIndex)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			var minCountEdge = int.MaxValue;
 			var nextVertex = -1;
 			var verticesLeft = size - path.Count;
@@ -93,7 +93,7 @@
 		/// <returns>The number of unvisited edges for the vertex.</returns>
 		private int CountEdge(int[,] graph, HashSet<int> visited, int vertex)
 		{
-			var size = (int)Math.Sqrt(graph.Length);
+			var size = graph.GetLength(0);
 			return Enumerable.Range(0, size).Count(i => graph[vertex, i] != 0 && !visited.Contains(i));
 		}
 	}
