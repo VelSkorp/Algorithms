@@ -30,5 +30,13 @@ namespace Tests
 			var hamiltonPath = new HamiltonPath();
 			return hamiltonPath.FindHamiltonPathOrCycle(graph, from, to);
 		}
+
+		[Test]
+		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.PrimsAlgorithmTestCases))]
+		public HashSet<int> PrimsAlgorithmTest(int[,] graph)
+		{
+			var primaAlgorithm = new PrimsAlgorithm();
+			return primaAlgorithm.FindSpanningTree(graph);
+		}
 	}
 }
