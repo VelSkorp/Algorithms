@@ -1,16 +1,24 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Using a program for an arbitrary graph represented as an adjacency matrix, check for the existence of an Euler path between pairs of vertices
+	/// Class for finding Euler paths or cycles in a graph represented by an adjacency matrix.
 	/// </summary>
 	public class EulerPath
 	{
 		/// <summary>
-		/// Finds an Euler path or cycle starting from a specified vertex in a given graph represented as an adjacency matrix.
+		///     <para>
+		///         Finds an Euler path or cycle starting from a specified vertex in a given graph represented as an adjacency matrix.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
-		/// <param name="graph">Adjacency matrix representing the graph</param>
-		/// <param name="currVertex">The current vertex to start the path from</param>
-		/// <returns>A stack containing the vertices of the Euler path or cycle</returns>
+		/// <param name="graph">Adjacency matrix representing the graph.</param>
+		/// <param name="currVertex">The current vertex to start the path from.</param>
+		/// <returns>A stack containing the vertices of the Euler path or cycle.</returns>
 		public Stack<int> FindEulerPathOrCycle(int[,] graph, int currVertex)
 		{
 			var size = graph.GetLength(0);
@@ -51,11 +59,19 @@
 		}
 
 		/// <summary>
-		/// Checks if there exists an Euler path in the given graph and identifies the odd vertex, if any.
+		///     <para>
+		///         Checks if there exists an Euler path in the given graph and identifies the odd vertex, if any.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), doesn't create additional data structures.
+		///     </para>
 		/// </summary>
-		/// <param name="graph">Adjacency matrix representing the graph</param>
-		/// <param name="oddVertex">Output parameter to store the odd vertex if an Euler path exists</param>
-		/// <returns>True if an Euler path exists, otherwise false</returns>
+		/// <param name="graph">Adjacency matrix representing the graph.</param>
+		/// <param name="oddVertex">Output parameter to store the odd vertex if an Euler path exists.</param>
+		/// <returns>True if an Euler path exists, otherwise false.</returns>
 		public bool IsEulerPath(int[,] graph, out int oddVertex)
 		{
 			var size = graph.GetLength(0);

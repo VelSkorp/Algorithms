@@ -1,12 +1,20 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Perform a software implementation of finding the minimum spanning tree using the Prim's algorithm.
+	/// Class implementing Prim's algorithm to find a minimum spanning tree in a graph.
 	/// </summary>
 	public class PrimsAlgorithm
 	{
 		/// <summary>
-		/// Finds a minimum spanning tree in the given graph using Prim's algorithm.
+		///     <para>
+		///         Finds a minimum spanning tree in the given graph using Prim's algorithm.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <returns>A HashSet containing the vertices forming the minimum spanning tree.</returns>

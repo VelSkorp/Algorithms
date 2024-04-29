@@ -1,12 +1,20 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Design a program for finding the Hamiltonian path between two user-specified vertices of an arbitrary undirected graph described by it's adjacency matrix
+	/// Class for finding Hamiltonian paths or cycles in a given graph.
 	/// </summary>
 	public class HamiltonPath
 	{
 		/// <summary>
-		/// Finds a Hamiltonian path or cycle in the given graph.
+		///     <para>
+		///         Finds a Hamiltonian path or cycle in the given graph.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^3), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="startVertex">The starting vertex for the path or cycle.</param>
@@ -50,7 +58,15 @@
 		}
 
 		/// <summary>
-		/// Retrieves the next vertex in the path.
+		///     <para>
+		///         Retrieves the next vertex in the path.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), doesn't create additional data structures.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="path">The current path being constructed.</param>
@@ -85,7 +101,15 @@
 		}
 
 		/// <summary>
-		/// Retrieves the number of unvisited edges for a vertex.
+		///     <para>
+		///         Retrieves the number of unvisited edges for a vertex.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), doesn't create additional data structures.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="visited">The set of visited vertices.</param>

@@ -1,12 +1,20 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Develop a program that determines if there is a path from one vertex to another according to the reachability matrix
+	/// Class for finding paths and creating reachability matrices for a graph.
 	/// </summary>
 	public class ReachabilityMatrixPathFinder
 	{
 		/// <summary>
-		/// Checks if a path exists between two vertices in the given reachability matrix.
+		///     <para>
+		///         Checks if a path exists between two vertices in the given reachability matrix.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(1), a single comparison operation.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), doesn't create additional data structures.
+		///     </para>
 		/// </summary>
 		/// <param name="matrix">The reachability matrix representing the graph.</param>
 		/// <param name="vertex1">The starting vertex.</param>
@@ -15,7 +23,15 @@
 		public bool IsPathReachable(int[,] matrix, int vertex1, int vertex2) => matrix[vertex1, vertex2] == 1;
 
 		/// <summary>
-		/// Creates a reachability matrix from the given adjacency matrix using Depth-First Search (DFS).
+		///     <para>
+		///         Creates a reachability matrix from the given adjacency matrix using Depth-First Search (DFS).
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^3), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <returns>The reachability matrix representing the graph.</returns>
@@ -37,7 +53,15 @@
 		}
 
 		/// <summary>
-		/// Performs Depth-First Search (DFS) to determine reachability between two vertices.
+		///     <para>
+		///         Performs Depth-First Search (DFS) to determine reachability between two vertices.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="startVertex">The starting vertex for the DFS traversal.</param>
@@ -52,7 +76,7 @@
 			{
 				return true;
 			}
-			
+
 			if (visited.Contains(startVertex))
 			{
 				return false;

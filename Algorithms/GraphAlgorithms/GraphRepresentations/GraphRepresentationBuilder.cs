@@ -1,12 +1,20 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Write a program that constructs incidence matrices and adjacency lists for graphs using the adjacency matrix.
+	/// Class for constructing various graph representations from an adjacency matrix.
 	/// </summary>
 	public class GraphRepresentationBuilder
 	{
 		/// <summary>
-		/// Builds an adjacency list representation of the graph from its adjacency matrix.
+		///     <para>
+		///         Builds an adjacency list representation of the graph from its adjacency matrix.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n + m), where n is the number of vertices in the graph, m is the number of edges.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <returns>An array of arrays representing the adjacency list for each vertex.</returns>
@@ -31,7 +39,15 @@
 		}
 
 		/// <summary>
-		/// Finds the incident edges of the graph from its adjacency list.
+		///     <para>
+		///         Finds the incident edges of the graph from its adjacency list.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n * m), where n is the number of vertices in the graph, m is the average number of edges incident to each vertex.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n + m), where n is the number of vertices in the graph, m is the number of incident edges.
+		///     </para>
 		/// </summary>
 		/// <param name="adjacencyList">The adjacency list representation of the graph.</param>
 		/// <returns>A HashSet containing tuples representing incident edges.</returns>
@@ -55,7 +71,15 @@
 		}
 
 		/// <summary>
-		/// Builds an incidence matrix representation of the graph from its adjacency matrix and incident edges.
+		///     <para>
+		///         Builds an incidence matrix representation of the graph from its adjacency matrix and incident edges.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(m), where m is the number of incident edges in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n * m), where n is the number of vertices in the graph, m is the number of incident edges.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The adjacency matrix representation of the graph.</param>
 		/// <param name="incidentEdges">The set of incident edges of the graph.</param>

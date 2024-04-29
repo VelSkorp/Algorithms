@@ -1,7 +1,7 @@
 ﻿namespace GraphAlgorithms
 {
 	/// <summary>
-	/// Task: Develop a program that determines the maximum flow in a graph using depth search (DFS)
+	/// Class for calculating the maximum flow in a graph and extracting information about it.
 	/// </summary>
 	public class MaximumFlow
 	{
@@ -16,7 +16,15 @@
 		#region Public Methods
 
 		/// <summary>
-		/// Calculates the maximum flow in the graph and returns information about it.
+		///     <para>
+		///         Calculates the maximum flow in the graph and returns information about it.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^3), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <returns>A tuple containing information about the maximum flow and saturated edges.</returns>
@@ -46,7 +54,15 @@
 		#region Private Methods
 
 		/// <summary>
-		/// Initializes the graph for maximum flow calculation.
+		///     <para>
+		///         Initializes the graph for maximum flow calculation.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		private void Initialize(string[,] graph)
@@ -59,7 +75,15 @@
 		}
 
 		/// <summary>
-		/// Depth-First Search (DFS) algorithm to find augmenting paths in the graph.
+		///     <para>
+		///         Depth-First Search (DFS) algorithm to find augmenting paths in the graph.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <param name="vertexStart">The starting vertex for DFS.</param>
@@ -101,7 +125,15 @@
 		}
 
 		/// <summary>
-		/// Retrieves the maximum flow value from the graph.
+		///     <para>
+		///         Retrieves the maximum flow value from the graph.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), uses a constant amount of additional memory.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <returns>The string representation of the maximum flow.</returns>
@@ -133,7 +165,15 @@
 		}
 
 		/// <summary>
-		/// Retrieves the saturated edges from the graph.
+		///     <para>
+		///         Retrieves the saturated edges from the graph.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(n^2), where n is the number of vertices in the graph.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <returns>The string representation of saturated edges.</returns>
@@ -156,7 +196,15 @@
 		}
 
 		/// <summary>
-		/// Updates the flow value along an edge in the graph.
+		///     <para>
+		///         Updates the flow value along an edge in the graph.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(1), since there is a constant number of operations on the array elements.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), doesn't create additional data structures.
+		///     </para>
 		/// </summary>
 		/// <param name="graph">The graph represented as a 2D array of strings.</param>
 		/// <param name="vertexOne">The starting vertex of the edge.</param>
@@ -169,7 +217,15 @@
 		}
 
 		/// <summary>
-		/// Converts a character representing a digit to its corresponding integer value.
+		///     <para>
+		///         Converts a character representing a digit to its corresponding integer value.
+		///     </para>
+		///     <para>
+		///         Time Complexity: O(1), since the conversion of a symbol to an integer is done in constant time.
+		///     </para>
+		///     <para>
+		///         Space Complexity: O(1), uses a constant amount of additional memory.
+		///     </para>
 		/// </summary>
 		/// <param name="ch">The character to convert.</param>
 		/// <returns>The integer value corresponding to the character.</returns>
