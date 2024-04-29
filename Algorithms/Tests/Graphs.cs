@@ -49,5 +49,25 @@ namespace Tests
 			var matrix = createIncidenceMatrixAndAdjacencyList.BuildIncidenceMatrix(graph, edges);
 			return (list, edges, matrix);
 		}
+
+		[Test]
+		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.ReachabilityMatrixPathFinderTestCases))]
+		public (int[,], bool) ReachabilityMatrixPathFinderTest(int[,] graph, int from, int to)
+		{
+			var ReachabilityMatrixPathFinder = new ReachabilityMatrixPathFinder();
+			var reachabilityMatrix = ReachabilityMatrixPathFinder.GenerateReachabilityMatrix(graph);
+			var isPathReachable = ReachabilityMatrixPathFinder.IsPathReachable(reachabilityMatrix, from, to);
+			return (reachabilityMatrix, isPathReachable);
+		}
+
+		[Test]
+		[TestCaseSource(typeof(GraphsDataClass), nameof(GraphsDataClass.TransposedReachabilityMatrixPathFinderTestCases))]
+		public (int[,], bool) TransposedReachabilityMatrixPathFinderTest(int[,] graph, int from, int to)
+		{
+			var transposedReachabilityMatrixPathFinder = new TransposedReachabilityMatrixPathFinder();
+			var matrix = transposedReachabilityMatrixPathFinder.GenerateTransposedReachabilityMatrix(graph);
+			var isPathExist = transposedReachabilityMatrixPathFinder.IsPathReachable(matrix, from, to);
+			return (matrix, isPathExist);
+		}
 	}
 }
