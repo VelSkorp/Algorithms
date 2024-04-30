@@ -35,7 +35,8 @@ Algorithms
 │ ├── ISort.cs
 │ └── SortOrder.cs
 ├── Strings
-│ └── StringReverse.cs
+│ ├── StringReverse.cs
+│ └── Substrings.cs
 └── Tests
   ├── Data
   │ ├── GraphsDataClass.cs
