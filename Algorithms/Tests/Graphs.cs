@@ -65,9 +65,9 @@ namespace Tests
 		public (int[,], bool) TransposedReachabilityMatrixPathFinderTest(int[,] graph, int from, int to)
 		{
 			var transposedReachabilityMatrixPathFinder = new TransposedReachabilityMatrixPathFinder();
-			var matrix = transposedReachabilityMatrixPathFinder.GenerateTransposedReachabilityMatrix(graph);
-			var isPathExist = transposedReachabilityMatrixPathFinder.IsPathReachable(matrix, from, to);
-			return (matrix, isPathExist);
+			var transposedReachabilityMatrix = transposedReachabilityMatrixPathFinder.GenerateTransposedReachabilityMatrix(graph);
+			var isPathExist = transposedReachabilityMatrixPathFinder.IsPathReachable(transposedReachabilityMatrix, from, to);
+			return (transposedReachabilityMatrix, isPathExist);
 		}
 	}
 }
